@@ -1,0 +1,60 @@
+QMainWindow { /*главное окно*/
+    background-color: "#242633"; /*темный цвет*/
+}
+
+QWidget { /*2-ое окно (и не только)*/
+    background-color: "#242633"; /*темный цвет*/
+}
+
+QLabel {
+    color: "#dbe482"; /*бежевый цвет*/
+    font-style: italic;
+    font-size: 16px;
+}
+
+QLineEdit {
+    font-size: 16px;
+    border: 1px solid "#dbe482"; /*бежевый цвет*/
+    color: "#dbe482"; /*бежевый цвет*/
+}
+
+QDateEdit {
+    font-size: 16px;
+    border: 1px solid "#dbe482"; /*бежевый цвет*/
+    color: "#dbe482"; /*бежевый цвет*/
+}
+
+QRadioButton {
+    font-size: 16px;
+    color: "#dbe482"; /*бежевый цвет*/
+}
+
+QTextEdit {
+    border: 1px solid;
+    border-color: "#dbe482"; /*бежевый цвет*/
+    background-color: "#242633"; /*темный цвет*/
+    color: "#dbe482"; /*бежевый цвет*/
+}
+
+QRadioButton::indicator::unchecked {
+    border: 1px solid;
+    border-color: "#dbe482"; /*бежевый цвет*/
+    background-color: "#242633"; /*темный цвет*/
+}
+
+QRadioButton::indicator::checked {
+    border: 1px solid;
+    border-color: "#dbe482"; /*бежевый цвет*/
+    background-color: "#dbe482"; /*бежевый цвет*/
+}
+
+QPushButton {
+    border: 3px solid purple;
+    border-radius: 17px;
+    background-color: "#442653";
+    color: "#dbe482";
+}
+
+QPushButton:hover {
+    background-color: purple;
+}
