@@ -1,0 +1,109 @@
+/* ОКНА */
+QMainWindow { /*главное окно*/
+    background-color: "#242633"; /*темный цвет*/
+}
+QWidget { /*2-ое окно (и не только)*/
+    background-color: "#242633"; /*темный цвет*/
+}
+
+/* ВЕРХНЕЕ МЕНЮ */
+QMenuBar {
+    font-size: 16px;
+    color: "#dbe482"; /*бежевый цвет*/
+    font-weight: bold;
+    background-color: "#343643"; /*темный цвет+1*/
+}
+QMenuBar::item {
+    padding: 1px 4px;
+    background: transparent;
+    border-radius: 4px;
+}
+QMenuBar::item:selected {
+    background: #a8a8a8; /* темно-серый */
+}
+QMenuBar::item:pressed {
+    background: #a8a8a8; /* темно-серый */
+}
+
+/* КАЛЕНДАРЬ */
+QTableView {
+    border: 1px solid "#dbe482"; /*бежевый цвет*/
+}
+QHeaderView::section { /* это где дни недели */
+    color: white;
+    background-color: "#242633"; /*темный цвет*/
+}
+
+/* НАДПИСИ */
+QLabel {
+    color: "#dbe482"; /*бежевый цвет*/
+}
+
+/* ТЕКСТОВЫЕ ПОЛЯ */
+QLineEdit {
+    border: 1px solid "#dbe482"; /*бежевый цвет*/
+    color: "#dbe482"; /*бежевый цвет*/
+    background-color: "#343643"; /*темный цвет+1*/
+}
+QTextEdit {
+    border: 1px solid;
+    border-color: "#dbe482"; /*бежевый цвет*/
+    color: "#dbe482"; /*бежевый цвет*/
+    background-color: "#343643"; /*темный цвет+1*/
+}
+
+/* КНОПКИ */
+QPushButton {
+    border: 2px solid purple;
+    border-radius: 17px;
+    background-color: "#442653"; /*темно-фиолетовый*/
+    color: "#dbe482"; /*бежевый цвет*/
+}
+QPushButton:hover {
+    background-color: purple;
+}
+QPushButton:disabled {
+    color: "#442653"; /*темно-фиолетовый*/
+}
+
+/* TOOL КНОПКИ */
+QToolButton {
+    border: 2px solid purple;
+    background-color: "#442653"; /*темно-фиолетовый*/
+    color: "#dbe482"; /*бежевый цвет*/
+}
+QToolButton[popupMode="1"] { /* только для MenuButtonPopup */
+    padding-right: 20px; /* выделяем место для кнопки всплывающего списка */
+}
+QToolButton::menu-button {
+    border: 2px solid purple;
+    width: 15px;
+    color: "#уbe482";
+}
+QToolButton::menu-button::hover {
+    background-color: purple;
+}
+QMenu::item {
+    color: "#dbe482"; /*бежевый цвет*/
+    background-color: "#343643"; /*темный цвет+1*/
+}
+QMenu::item:selected {
+    background-color: "#444653"; /*темный цвет+2*/
+}
+QToolButton:disabled {
+    color: "#442653"; /*темно-фиолетовый*/
+}
+
+/* ЛИНИЯ МЕЖДУ ПОИСКОМ И КНОПКАМИ */
+QFrame[frameShape="4"], /* QFrame::HLine == 0x0004 */
+QFrame[frameShape="5"]  /* QFrame::VLine == 0x0005 */
+{
+    border: none;
+    background: "#dbe482"; /*бежевый цвет*/
+}
+
+/* ЛИНИЯ ВНИЗУ С ОБРАТНОЙ СВЯЗЬЮ */
+QStatusBar {
+    color: "#dbe482"; /*бежевый цвет*/
+}
+
