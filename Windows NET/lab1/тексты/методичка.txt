@@ -1,0 +1,146 @@
+private void openToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			OpenFileDialog dlg = new OpenFileDialog();
+
+			if (dlg.ShowDialog() == DialogResult.OK)
+			{
+				StreamReader reader = new StreamReader(dlg.FileName, Encoding.Default);
+				txtFileContents.Text = reader.ReadToEnd();
+				reader.Close();
+			}
+
+			dlg.Dispose();
+		}
+
+		private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			SaveFileDialog dlg = new SaveFileDialog();
+
+			if (dlg.ShowDialog() == DialogResult.OK)
+			{
+				StreamWriter writer = new StreamWriter(dlg.FileName);
+				for (int i = 0; i  lstSection2.Items.Count; i++)
+				{
+					writer.WriteLine((string)lstSection2.Items[i]);
+				}
+				writer.Close();
+			}
+
+			dlg.Dispose();
+		}
+
+		
+
+		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			MessageBox.Show(Information about application and developer);
+		}
+
+3. Создайте обработчики события “Нажатие на кнопку” для кнопок Сброс, Выход.
+ По кнопке Сброс – возврат  формы в исходное состояние очистка рабочей области (TextBox), области поиска, Раздела 1 и Раздела 2, а также установка CheckBox, RadioButton и ComboBox в начальное состояние. 
+По кнопке Close– выход из программы. 
+private void btnReset_Click(object sender, EventArgs e)
+		{
+			lstSection1.Items.Clear();
+			lstSection2.Items.Clear();
+			lstSearchResults.Items.Clear();
+			txtFileContents.Clear();
+			chkSection1.Checked = true;
+			chkSection2.Checked = false;
+			rdoAll.Checked = true;
+		}
+private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Application.Exit();
+		}
+
+4. По кнопке Начать содержимое TextBox разбивается на отдельные слова (признак окончания очередного слова  - встреча пробела), которые последовательно помещаются  в Раздел 1  в зависимости от значения радиокнопок.  Один из способов реализации
+- из TextBox последовательно считываются строки; 
+- очередная считанная строка делится на слова; 
+- каждое слово проверяется на соответствие критерию выбора (определяется значениями радиокнопок (RadioButton) если соответствует -помещается в Раздел 1 (ListBox1). Чтобы поместить в ListBox данные (STRING) воспользуемся ListBox1.Items.Add(STRING).
+private void btnStart_Click(object sender, EventArgs e)
+		{
+			lstSection1.Items.Clear();
+			lstSection2.Items.Clear();
+
+			lstSection1.BeginUpdate();
+			string[] strings = txtFileContents.Text.Split(new char[] { 'n', 't', ' '}, StringSplitOptions.RemoveEmptyEntries);
+			foreach (string s in strings)
+			{
+				string str = s.Trim();
+				if (str == String.Empty) 
+					continue;
+				if (rdoAll.Checked)
+				{
+					lstSection1.Items.Add(str);
+				}
+				if (rdoDigits.Checked)
+				{
+					if (Regex.IsMatch(str, @d))
+						lstSection1.Items.Add(str);
+				}
+				if (rdoEmails.Checked)
+				{
+					if (Regex.IsMatch(str, @w+@w+.w+))
+						lstSection1.Items.Add(str);
+				}
+				
+			}
+			lstSection1.EndUpdate();
+		}
+5. Реализовать
+ - перемещение данных (полное или только выделенных строк) из одного Раздела в другой,
+ - удаление выделенных строк из Разделов 1 и 2, 
+ - добавление данных в Раздел 2.
+5.1. Для перемещения строк из одного Раздела в другой (полное) необходимо вначале добавить все элементы из одного ListBox в другой (с помощью метода Add), а затем очистить ListBox (Clear), из которого мы производили перемещение. Чтобы узнать количество элементов в ListBox, можно воспользоваться  ListBox1.Items.Count. 
+Для возможности выделять несколько строк в списке ListBox, установите его свойство SelectionMode = MultiExtended. 
+
+5.2. Для перемещения строк из одного Раздела в другой (частично), вначале необходимо найти выделенную строку (ListBox1.SelectedItems[номер выделенной строки] – true, если строка выделена). После того, как строка найдена,  добавляем ее в другой раздел. Затем эту строку удаляем (используем ListBox1.Items.RemoveAt(номер удаляемой строки)).
+5.3. Удаление выделенных строк из Раздела1(2) или одновременно из того и другого производится аналогично перемещению строк (частичное). Т.е. вначале мы ищем выделенные строки (Selected), затем удаляем найденную строку (RemoveAt). После этого переходим в другой раздел и проделываем то же самое. Предварительно (перед поиском) надо делать проверку наличия данных в Разделе (если пустой – проверка другого раздела …) 
+private void MoveSelectedItems(ListBox lstFrom, ListBox lstTo)
+		{
+			lstTo.BeginUpdate();
+			foreach (object item in lstFrom.SelectedItems)
+			{
+				lstTo.Items.Add(item);
+			}
+			lstTo.EndUpdate();
+
+			DeleteSelectedItems(lstFrom);
+		}
+
+		private void MoveAllItems(ListBox lstFrom, ListBox lstTo)
+		{
+			lstTo.Items.AddRange(lstFrom.Items);
+			lstFrom.Items.Clear();
+		}
+
+		private void btnMoveToSection2_Click(object sender, EventArgs e)
+		{
+			MoveSelectedItems(lstSection1, lstSection2);
+		}
+
+		private void btnMoveToSection1_Click(object sender, EventArgs e)
+		{
+			MoveSelectedItems(lstSection2, lstSection1);
+		}
+
+		private void btnMoveAllToSection2_Click(object sender, EventArgs e)
+		{
+			MoveAllItems(lstSection1, lstSection2);
+		}
+
+		private void btnMoveAllToSection1_Click(object sender, EventArgs e)
+		{
+			MoveAllItems(lstSection2, lstSection1);
+		}
+
+		private void btnDelete_Click(object sender, EventArgs e)
+		{
+			DeleteSelectedItems(lstSection1);
+			DeleteSelectedItems(lstSection2);
+		}
+
+5.4. Для добавления данных в Раздел1(2) создадим модальную форму следующего вида. 
+По кнопке Добавить 
+- данная форма закрывается; 

@@ -1,0 +1,4 @@
+private void buttonMoveSomeToright_Click(object sender, EventArgs e) //кнопка
+        {
+            MoveSelectedItems(listBox1, listBox2);
+        }
