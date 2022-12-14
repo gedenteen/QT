@@ -1,0 +1,11 @@
+E:\programming\C4_визуальное_программирование\course\course\bin\Debug\course.exe.config
+E:\programming\C4_визуальное_программирование\course\course\bin\Debug\course.exe
+E:\programming\C4_визуальное_программирование\course\course\bin\Debug\course.pdb
+E:\programming\C4_визуальное_программирование\course\course\obj\Debug\course.csprojAssemblyReference.cache
+E:\programming\C4_визуальное_программирование\course\course\obj\Debug\course.Form1.resources
+E:\programming\C4_визуальное_программирование\course\course\obj\Debug\course.Properties.Resources.resources
+E:\programming\C4_визуальное_программирование\course\course\obj\Debug\course.csproj.GenerateResource.cache
+E:\programming\C4_визуальное_программирование\course\course\obj\Debug\course.csproj.CoreCompileInputs.cache
+E:\programming\C4_визуальное_программирование\course\course\obj\Debug\course.exe
+E:\programming\C4_визуальное_программирование\course\course\obj\Debug\course.pdb
+E:\programming\C4_визуальное_программирование\course\course\obj\Debug\course.FormFeed.resources
