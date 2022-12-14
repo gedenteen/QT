@@ -1,0 +1,9 @@
+C:\Users\Dmitry\Desktop\программирование\С4_визуальное_программирование\lab4.1\lab4\bin\Release\lab4.exe.config
+C:\Users\Dmitry\Desktop\программирование\С4_визуальное_программирование\lab4.1\lab4\bin\Release\lab4.exe
+C:\Users\Dmitry\Desktop\программирование\С4_визуальное_программирование\lab4.1\lab4\bin\Release\lab4.pdb
+C:\Users\Dmitry\Desktop\программирование\С4_визуальное_программирование\lab4.1\lab4\obj\Release\lab4.csprojAssemblyReference.cache
+C:\Users\Dmitry\Desktop\программирование\С4_визуальное_программирование\lab4.1\lab4\obj\Release\lab4.Form1.resources
+C:\Users\Dmitry\Desktop\программирование\С4_визуальное_программирование\lab4.1\lab4\obj\Release\lab4.Properties.Resources.resources
+C:\Users\Dmitry\Desktop\программирование\С4_визуальное_программирование\lab4.1\lab4\obj\Release\lab4.csproj.GenerateResource.cache
+C:\Users\Dmitry\Desktop\программирование\С4_визуальное_программирование\lab4.1\lab4\obj\Release\lab4.exe
+C:\Users\Dmitry\Desktop\программирование\С4_визуальное_программирование\lab4.1\lab4\obj\Release\lab4.pdb
